@@ -2,7 +2,9 @@
 import { ChevronLeft } from "@mui/icons-material";
 import { Slider, IconButton } from "@mui/material";
 import * as Yup from "yup";
-import { Field, Formik, Form, ErrorMessage } from "formik";
+import {
+  Field, Formik, Form, ErrorMessage,
+} from "formik";
 import React, { memo, useContext } from "react";
 import Image from "next/image";
 import { PlumContext } from "../../context/PlumContext";
@@ -37,7 +39,7 @@ function valuetext(value) {
 const validationSchema = Yup.object({
   agree: Yup.boolean().oneOf(
     [true],
-    "To continue, Please agree with this condition"
+    "To continue, Please agree with this condition",
   ),
 });
 
@@ -95,8 +97,12 @@ function DeductibleAmount() {
 
               <div className="w-full p-6">
                 <p className="mb-4 font-sans text-xl">
-                  Sum insured of ₹20,00,000 with a deductible of{" "}
-                  <b>₹{values.amount.toLocaleString("en-IN")}</b>
+                  Sum insured of ₹20,00,000 with a deductible of
+                  {" "}
+                  <b>
+                    ₹
+                    {values.amount.toLocaleString("en-IN")}
+                  </b>
                 </p>
                 <Slider
                   defaultValue={values.amount}
@@ -132,7 +138,9 @@ function DeductibleAmount() {
                 }}
               />
               I understand that this insurance will not be utilized until ₹
-              {values.amount.toLocaleString("en-IN")} (deductible) is exhausted.
+              {values.amount.toLocaleString("en-IN")}
+              {" "}
+              (deductible) is exhausted.
               <span className="checkmark" />
             </label>
             <p className="ml-4 mt-2 font-sans text-lg tracking-wide text-red-600">
