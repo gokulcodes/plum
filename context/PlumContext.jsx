@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-no-constructed-context-values */
-import React, {
-  createContext, memo, useState,
-} from "react";
+import React, { createContext, memo, useState } from "react";
 
 export const PlumContext = createContext();
 
@@ -49,9 +47,7 @@ function PlumProvider({ children }) {
   };
 
   return (
-    <PlumContext.Provider value={initialState}>
-      {children}
-    </PlumContext.Provider>
+    <PlumContext.Provider value={initialState}>{children}</PlumContext.Provider>
   );
 }
 

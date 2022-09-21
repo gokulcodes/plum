@@ -26,7 +26,6 @@ module.exports = {
     height: {
       full: "100vh",
     },
-
   },
   plugins: [],
 };

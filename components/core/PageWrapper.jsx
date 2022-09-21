@@ -35,10 +35,12 @@ function PageWrapper() {
   const { activePage } = useContext(PlumContext);
 
   return (
-    <div className={`mx-auto mt-10 grid h-full w-4/5 animate-openUp ${activePage < 3 ? "grid-cols-3" : "grid-cols-1"}  items-start gap-8`}>
-      <div className="col-span-2">
-        {Pages[activePage].component}
-      </div>
+    <div
+      className={`mx-auto mt-10 grid h-full w-4/5 animate-openUp ${
+        activePage < 3 ? "grid-cols-3" : "grid-cols-1"
+      }  items-start gap-8`}
+    >
+      <div className="col-span-2">{Pages[activePage].component}</div>
       {activePage < 3 && <FormPreview />}
     </div>
   );

@@ -52,10 +52,20 @@ function Selector() {
   return (
     <Menu as="div" className="relative inline-block w-full text-left">
       <div>
-        <Menu.Button className="inline-flex font-sans  w-full justify-between rounded-md bg-white px-4 py-5 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">
-          {state.plan === 0 ? "Select your plan" : state.plan }
-          <svg className="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+        <Menu.Button className="inline-flex w-full  justify-between rounded-md bg-white px-4 py-5 font-sans text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">
+          {state.plan === 0 ? "Select your plan" : state.plan}
+          <svg
+            className="h-5 -mr-1 ml-2 w-5"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              fillRule="evenodd"
+              d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+              clipRule="evenodd"
+            />
           </svg>
         </Menu.Button>
       </div>
@@ -75,25 +85,25 @@ function Selector() {
               <button
                 type="button"
                 key={plan.id}
-                className="flex flex-col items-start group border-b-2 w-full cursor-pointer border-black/10"
+                className="group flex w-full cursor-pointer flex-col items-start border-b-2 border-black/10"
                 onClick={() => {
                   state.setPlanError(null);
                   state.setPlan(`${plan.member} (${plan.descriptionMember})`);
                 }}
               >
-                <p className="font-sans px-4 pt-4 text-md">
+                <p className="text-md px-4 pt-4 font-sans">
                   <b>{plan.member}</b>
                   {" "}
                   (
                   {plan.descriptionMember}
                   )
                 </p>
-                <div className="flex flex-row w-full items-center p-4 my-2 transition-all group-hover:bg-orange-100  justify-between">
+                <div className="my-2 flex w-full flex-row items-center justify-between p-4 transition-all  group-hover:bg-orange-100">
                   <div className="flex flex-row items-center justify-center">
                     <Image src={plan.avatar} width={28} height={28} />
-                    <p className="font-bold ml-2 text-xl">{plan.title}</p>
+                    <p className="ml-2 text-xl font-bold">{plan.title}</p>
                   </div>
-                  <p className="font-bold text-lg">
+                  <p className="text-lg font-bold">
                     ₹
                     {plan.amount}
                   </p>

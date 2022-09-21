@@ -9,16 +9,28 @@ import React, { useContext } from "react";
 import { PlumContext } from "../../context/PlumContext";
 
 const validationSchema = Yup.object({
-  declare1: Yup.boolean().oneOf([true], "To continue, Please agree with this condition"),
-  declare2: Yup.boolean().oneOf([true], "To continue, Please agree with this condition"),
-  declare3: Yup.boolean().oneOf([true], "To continue, Please agree with this condition"),
-  declare4: Yup.boolean().oneOf([true], "To continue, Please agree with this condition"),
+  declare1: Yup.boolean().oneOf(
+    [true],
+    "To continue, Please agree with this condition",
+  ),
+  declare2: Yup.boolean().oneOf(
+    [true],
+    "To continue, Please agree with this condition",
+  ),
+  declare3: Yup.boolean().oneOf(
+    [true],
+    "To continue, Please agree with this condition",
+  ),
+  declare4: Yup.boolean().oneOf(
+    [true],
+    "To continue, Please agree with this condition",
+  ),
 });
 
 function Declaration() {
   const state = useContext(PlumContext);
   return (
-    <div className="animate-openUp flex flex-col">
+    <div className="flex animate-openUp flex-col">
       <div className="flex flex-row items-start">
         <IconButton
           className="bg-black/5 p-2 hover:bg-black/10"
@@ -47,7 +59,7 @@ function Declaration() {
           >
             {() => (
               <Form>
-                <label className="text-2xl container">
+                <label className="container text-2xl">
                   <Field
                     type="checkbox"
                     checked={state.declarations.declare1}
@@ -62,13 +74,15 @@ function Declaration() {
                     }}
                   />
                   <span className="checkmark" />
-                  I hereby declare that none of the proposed members are habitual consumers of alcohol, tobacco, gutka or any recreational drugs.
+                  I hereby declare that none of
+                  the proposed members are habitual consumers of alcohol,
+                  tobacco, gutka or any recreational drugs.
                 </label>
                 <p className="ml-4 mt-2 font-sans text-lg tracking-wide text-red-600">
                   <ErrorMessage name="declare1" />
                 </p>
 
-                <label className="text-2xl container">
+                <label className="container text-2xl">
                   <Field
                     type="checkbox"
                     className="mt-20"
@@ -84,13 +98,16 @@ function Declaration() {
                     }}
                   />
                   <span className="checkmark" />
-                  I hereby declare that all proposed members are in good health and entirely free from any mental pf physical impairements or deformities, disease/condition.
+                  I hereby declare that all
+                  proposed members are in good health and entirely free from any
+                  mental pf physical impairements or deformities,
+                  disease/condition.
                 </label>
                 <p className="ml-4 mt-2 font-sans text-lg tracking-wide text-red-600">
                   <ErrorMessage name="declare2" />
                 </p>
 
-                <label className="text-2xl container">
+                <label className="container text-2xl">
                   <Field
                     type="checkbox"
                     className="mt-20"
@@ -106,13 +123,15 @@ function Declaration() {
                     }}
                   />
                   <span className="checkmark" />
-                  I have understood that there is 30 days waiting period for all diseases and 2 years on named ailments. (list of named ailements)
+                  I have understood that there is
+                  30 days waiting period for all diseases and 2 years on named
+                  ailments. (list of named ailements)
                 </label>
                 <p className="ml-4 mt-2 font-sans text-lg tracking-wide text-red-600">
                   <ErrorMessage name="declare3" />
                 </p>
 
-                <label className="text-2xl container">
+                <label className="container text-2xl">
                   <Field
                     type="checkbox"
                     className="mt-20"
@@ -128,12 +147,13 @@ function Declaration() {
                     }}
                   />
                   <span className="checkmark" />
-                  I understand that this policy doesn&apos;t cover Pre-existing diseases.
+                  I understand that this policy
+                  doesn&apos;t cover Pre-existing diseases.
                 </label>
                 <p className="ml-4 mt-2 font-sans text-lg tracking-wide text-red-600">
                   <ErrorMessage name="declare4" />
                 </p>
-                <div className="fixed left-0 bottom-0 flex w-full z-50 justify-end bg-white p-4">
+                <div className="fixed left-0 bottom-0 z-50 flex w-full justify-end bg-white p-4">
                   <button
                     type="submit"
                     className="w-1/4 rounded-xl bg-orange-600 p-4 font-sans text-xl font-bold text-white"

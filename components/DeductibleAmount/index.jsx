@@ -1,8 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { ChevronLeft } from "@mui/icons-material";
-import {
-  Slider, IconButton,
-} from "@mui/material";
+import { Slider, IconButton } from "@mui/material";
 import * as Yup from "yup";
 import {
   Field, Formik, Form, ErrorMessage,
@@ -39,14 +37,17 @@ function valuetext(value) {
 }
 
 const validationSchema = Yup.object({
-  agree: Yup.boolean().oneOf([true], "To continue, Please agree with this condition"),
+  agree: Yup.boolean().oneOf(
+    [true],
+    "To continue, Please agree with this condition",
+  ),
 });
 
 function DeductibleAmount() {
   const state = useContext(PlumContext);
 
   return (
-    <div className="animate-openUp flex flex-col">
+    <div className="flex animate-openUp flex-col">
       <div className="flex flex-row items-start">
         <IconButton
           className="bg-black/5 p-2 hover:bg-black/10"
@@ -88,16 +89,15 @@ function DeductibleAmount() {
                 <p className="font-sans text-2xl font-bold">
                   Self (Individual)
                 </p>
-                <div className="flex mt-4 flex-row items-center">
+                <div className="mt-4 flex flex-row items-center">
                   <Image width={36} height={36} src="/profile.svg" />
-                  <p className=" font-sans ml-2 font-bold text-xl">John Doe</p>
+                  <p className=" ml-2 font-sans text-xl font-bold">John Doe</p>
                 </div>
               </div>
 
-              <div className="p-6 w-full">
+              <div className="w-full p-6">
                 <p className="mb-4 font-sans text-xl">
                   Sum insured of ₹20,00,000 with a deductible of
-                  {" "}
                   {" "}
                   <b>
                     ₹
@@ -124,7 +124,7 @@ function DeductibleAmount() {
                 </p>
               </div>
             </div>
-            <label className="text-2xl container">
+            <label className="container text-2xl">
               <Field
                 type="checkbox"
                 className="mt-10"
@@ -137,8 +137,7 @@ function DeductibleAmount() {
                   });
                 }}
               />
-              I understand that this insurance will not be utilized until
-              ₹
+              I understand that this insurance will not be utilized until ₹
               {values.amount.toLocaleString("en-IN")}
               {" "}
               (deductible) is exhausted.
@@ -147,7 +146,7 @@ function DeductibleAmount() {
             <p className="ml-4 mt-2 font-sans text-lg tracking-wide text-red-600">
               <ErrorMessage name="agree" />
             </p>
-            <div className="fixed left-0 bottom-0 flex z-50 w-full justify-end bg-white p-4">
+            <div className="fixed left-0 bottom-0 z-50 flex w-full justify-end bg-white p-4">
               <button
                 type="submit"
                 className="w-1/4 rounded-xl bg-orange-600 p-4 font-sans text-xl font-bold text-white"

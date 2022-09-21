@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useCallback, useContext, memo } from "react";
+import React, { useContext, memo } from "react";
 import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import {
   Formik, Form, Field, ErrorMessage,
@@ -11,7 +11,12 @@ import { PlumContext } from "../../context/PlumContext";
 
 function ChoosePlan() {
   const {
-    basicDetails, setBasicDetails, plan, planError, setPlanError, setActivePage,
+    basicDetails,
+    setBasicDetails,
+    plan,
+    planError,
+    setPlanError,
+    setActivePage,
   } = useContext(PlumContext);
 
   const validationSchema = Yup.object().shape({
@@ -41,12 +46,8 @@ function ChoosePlan() {
       .required("Enter state"),
   });
 
-  const handleFormChanges = useCallback((e) => {
-    setBasicDetails(e);
-  }, [basicDetails]);
-
   return (
-    <div className="animate-openUp flex flex-col">
+    <div className="flex animate-openUp flex-col">
       <script src="https://unpkg.com/@themesberg/flowbite@latest/dist/flowbite.bundle.js" />
       <div className="flex flex-col items-start">
         <h1 className="font-sans text-4xl font-bold">Choose your plan</h1>
@@ -103,16 +104,16 @@ function ChoosePlan() {
                     Your plan type
                   </label>
                   <div
-                    className={`border-2 rounded-xl ${
+                    className={`rounded-xl border-2 ${
                       planError ? "border-red-600" : "border-gray-300"
                     } `}
                   >
                     <Selector />
                   </div>
                   {planError && (
-                  <p className="ml-4 mt-2 font-sans text-xs tracking-wide text-red-600">
-                    {planError}
-                  </p>
+                    <p className="ml-4 mt-2 font-sans text-xs tracking-wide text-red-600">
+                      {planError}
+                    </p>
                   )}
                   {/* <Field
                       as="select"
@@ -262,7 +263,7 @@ function ChoosePlan() {
                   </div>
                 </AccordionDetails>
               </Accordion>
-              <div className="fixed left-0 bottom-0 flex z-50 w-full justify-end bg-white p-4">
+              <div className="fixed left-0 bottom-0 z-50 flex w-full justify-end bg-white p-4">
                 <button
                   type="button"
                   onClick={() => {

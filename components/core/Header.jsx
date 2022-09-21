@@ -33,13 +33,17 @@ function Header() {
   const state = useContext(PlumContext);
   return (
     <div className="flex flex-col items-center">
-      <div className="flex flex-row items-center justify-between mx-auto w-4/5 p-4">
-        <div className="bg-black/10 w-[128px] h-[40px] rounded-xl " />
-        <div className="bg-black/10 w-[128px] h-[40px] rounded-xl " />
+      <div className="mx-auto flex w-4/5 flex-row items-center justify-between p-4">
+        <div className="h-[40px] w-[128px] rounded-xl bg-black/10 " />
+        <div className="h-[40px] w-[128px] rounded-xl bg-black/10 " />
       </div>
-      <div className="grid grid-cols-4 w-full">
+      <div className="grid w-full grid-cols-4">
         {Pages.map((page) => (
-          <div className={`p-1 ${page.id <= state.activePage ? "bg-orange-600" : "bg-black/10"} col-span-1 m-1`} />
+          <div
+            className={`p-1 ${
+              page.id <= state.activePage ? "bg-orange-600" : "bg-black/10"
+            } col-span-1 m-1`}
+          />
         ))}
       </div>
     </div>
