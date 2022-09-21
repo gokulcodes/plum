@@ -13,16 +13,20 @@
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
+    "@headlessui/react": "^1.7.2",
     "@mui/base": "^5.0.0-alpha.86",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.1",
     "@mui/styles": "^5.10.6",
+    "formik": "^2.2.9",
     "i": "^0.3.7",
     "next": "12.3.0",
     "npm": "^8.19.2",
     "prop-types": "^15.8.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-lottie-player": "^1.4.3",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.11",

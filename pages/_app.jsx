@@ -17,6 +17,6 @@ function MyApp({ Component, pageProps }) {
 export default MyApp;
 
 MyApp.propTypes = {
-  Component: PropTypes.shape(Object).isRequired,
-  pageProps: PropTypes.shape(Object).isRequired,
+  Component: PropTypes.shape(Function).isRequired,
+  pageProps: PropTypes.shape(Function).isRequired,
 };
