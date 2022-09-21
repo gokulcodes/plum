@@ -36,35 +36,35 @@ function Review() {
         </div>
       </div>
       <div className="mt-10 flex w-full flex-col items-start rounded-xl bg-white p-10">
-        <div className="grid grid-cols-2 gap-12 py-2">
+        <div className="grid grid-cols-2 gap-12 py-2 w-1/2">
           <p className="cols-span-1 w-64 text-xl opacity-60">Plan selected</p>
-          <p className="text-xl font-bold">{plan}</p>
+          <p className="cols-span-1 text-xl font-bold">{plan}</p>
         </div>
-        <div className="grid grid-cols-2 gap-12 py-2">
+        <div className="grid grid-cols-2 gap-12 py-2 w-1/2">
           <p className="cols-span-1 w-64 text-xl opacity-60">Email Address</p>
-          <p className="text-xl font-bold">{basicDetails.email}</p>
+          <p className="cols-span-1 text-xl font-bold">{basicDetails.email}</p>
         </div>
-        <div className="grid grid-cols-2 gap-12 py-2">
+        <div className="grid grid-cols-2 gap-12 py-2 w-1/2">
           <p className="cols-span-1 w-64 text-xl opacity-60">Mobile number</p>
-          <p className="text-xl font-bold">{basicDetails.number}</p>
+          <p className="cols-span-1 text-xl font-bold">{basicDetails.number}</p>
         </div>
-        <div className="grid grid-cols-2 gap-12 py-2">
+        <div className="grid grid-cols-2 gap-12 py-2 w-1/2">
           <p className="cols-span-1 w-64 text-xl opacity-60">Address line 01</p>
-          <p className="text-xl font-bold">{basicDetails.address1}</p>
+          <p className="cols-span-1 text-xl font-bold">{basicDetails.address1}</p>
         </div>
-        <div className="grid grid-cols-2 gap-12 py-2">
+        <div className="grid grid-cols-2 gap-12 py-2 w-1/2">
           <p className="cols-span-1 w-64 text-xl opacity-60">Address line 02</p>
-          <p className="text-xl font-bold">{basicDetails.address2}</p>
+          <p className="cols-span-1 text-xl font-bold">{basicDetails.address2}</p>
         </div>
-        <div className="grid grid-cols-2 gap-12 py-2">
+        <div className="grid grid-cols-2 gap-12 py-2 w-1/2">
           <p className="cols-span-1 w-64 text-xl opacity-60">Pincode</p>
-          <p className="text-xl font-bold">{basicDetails.pincode}</p>
+          <p className="cols-span-1 text-xl font-bold">{basicDetails.pincode}</p>
         </div>
-        <div className="grid grid-cols-2 gap-12 py-2">
+        <div className="grid grid-cols-2 gap-12 py-2 w-1/2">
           <p className="cols-span-1 w-64 text-xl opacity-60">state</p>
-          <p className="text-xl font-bold">{basicDetails.state}</p>
+          <p className="cols-span-1 text-xl font-bold">{basicDetails.state}</p>
         </div>
-        <div className="grid grid-cols-2 gap-12 py-2">
+        <div className="grid grid-cols-2 gap-12 py-2 w-1/2">
           <p className="cols-span-1 w-64 text-xl opacity-60">
             Deductible Amount
           </p>
