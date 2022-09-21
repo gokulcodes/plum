@@ -12,22 +12,18 @@ import { PlumContext } from "../../context/PlumContext";
 const marks = [
   {
     value: 100000,
-    name: "1,00,000",
     label: "₹1L",
   },
   {
     value: 200000,
-    name: "1,00,000",
     label: "₹2L",
   },
   {
     value: 300000,
-    name: "1,00,000",
     label: "₹3L",
   },
   {
     value: 500000,
-    name: "1,00,000",
     label: "₹5L",
   },
 ];
@@ -44,7 +40,7 @@ const validationSchema = Yup.object({
 });
 
 function DeductibleAmount() {
-  const state = useContext(PlumContext);
+  const { setActivePage, deductible, setDeductible } = useContext(PlumContext);
 
   return (
     <div className="flex animate-openUp flex-col">
@@ -52,7 +48,7 @@ function DeductibleAmount() {
         <IconButton
           className="bg-black/5 p-2 hover:bg-black/10"
           onClick={() => {
-            state.setActivePage((prev) => prev - 1);
+            setActivePage((prev) => prev - 1);
           }}
         >
           <ChevronLeft className="text-5xl" />
@@ -71,15 +67,15 @@ function DeductibleAmount() {
 
       <Formik
         initialValues={{
-          amount: state.deductible.amount,
-          agree: state.deductible.agree,
+          amount: deductible.amount,
+          agree: deductible.agree,
         }}
         validateOnChange
         validateOnBlur
         enableReinitialize
         validationSchema={validationSchema}
         onSubmit={() => {
-          state.setActivePage((prev) => prev + 1);
+          setActivePage((prev) => prev + 1);
         }}
       >
         {({ values }) => (
@@ -110,9 +106,9 @@ function DeductibleAmount() {
                   step={null}
                   name="amount"
                   onChange={(e) => {
-                    state.setDeductible({
+                    setDeductible({
                       amount: e.target.value,
-                      agree: state.deductible.agree,
+                      agree: deductible.agree,
                     });
                   }}
                   max={500000}
@@ -128,12 +124,12 @@ function DeductibleAmount() {
               <Field
                 type="checkbox"
                 className="mt-10"
-                checked={state.deductible.agree}
+                checked={deductible.agree}
                 name="agree"
                 onChange={() => {
-                  state.setDeductible({
-                    amount: state.deductible.amount,
-                    agree: !state.deductible.agree,
+                  setDeductible({
+                    amount: deductible.amount,
+                    agree: !deductible.agree,
                   });
                 }}
               />

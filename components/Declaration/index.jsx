@@ -28,14 +28,14 @@ const validationSchema = Yup.object({
 });
 
 function Declaration() {
-  const state = useContext(PlumContext);
+  const { declarations, setActivePage, setDeclarations } = useContext(PlumContext);
   return (
     <div className="flex animate-openUp flex-col">
       <div className="flex flex-row items-start">
         <IconButton
           className="bg-black/5 p-2 hover:bg-black/10"
           onClick={() => {
-            state.setActivePage((prev) => prev - 1);
+            setActivePage((prev) => prev - 1);
           }}
         >
           <ChevronLeft className="text-5xl" />
@@ -44,17 +44,17 @@ function Declaration() {
           <h1 className="font-sans text-4xl font-bold">Declaration</h1>
           <Formik
             initialValues={{
-              declare1: state.declarations.declare1,
-              declare2: state.declarations.declare2,
-              declare3: state.declarations.declare3,
-              declare4: state.declarations.declare4,
+              declare1: declarations.declare1,
+              declare2: declarations.declare2,
+              declare3: declarations.declare3,
+              declare4: declarations.declare4,
             }}
             validateOnChange
             validateOnBlur
             enableReinitialize
             validationSchema={validationSchema}
             onSubmit={() => {
-              state.setActivePage((prev) => prev + 1);
+              setActivePage((prev) => prev + 1);
             }}
           >
             {() => (
@@ -62,14 +62,14 @@ function Declaration() {
                 <label className="container text-2xl">
                   <Field
                     type="checkbox"
-                    checked={state.declarations.declare1}
+                    checked={declarations.declare1}
                     name="agree"
                     onChange={() => {
-                      state.setDeclarations({
-                        declare1: !state.declarations.declare1,
-                        declare2: state.declarations.declare2,
-                        declare3: state.declarations.declare3,
-                        declare4: state.declarations.declare4,
+                      setDeclarations({
+                        declare1: !declarations.declare1,
+                        declare2: declarations.declare2,
+                        declare3: declarations.declare3,
+                        declare4: declarations.declare4,
                       });
                     }}
                   />
@@ -86,14 +86,14 @@ function Declaration() {
                   <Field
                     type="checkbox"
                     className="mt-20"
-                    checked={state.declarations.declare2}
+                    checked={declarations.declare2}
                     name="agree"
                     onChange={() => {
-                      state.setDeclarations({
-                        declare1: state.declarations.declare1,
-                        declare2: !state.declarations.declare2,
-                        declare3: state.declarations.declare3,
-                        declare4: state.declarations.declare4,
+                      setDeclarations({
+                        declare1: declarations.declare1,
+                        declare2: !declarations.declare2,
+                        declare3: declarations.declare3,
+                        declare4: declarations.declare4,
                       });
                     }}
                   />
@@ -111,14 +111,14 @@ function Declaration() {
                   <Field
                     type="checkbox"
                     className="mt-20"
-                    checked={state.declarations.declare3}
+                    checked={declarations.declare3}
                     name="agree"
                     onChange={() => {
-                      state.setDeclarations({
-                        declare1: state.declarations.declare1,
-                        declare2: state.declarations.declare2,
-                        declare3: !state.declarations.declare3,
-                        declare4: state.declarations.declare4,
+                      setDeclarations({
+                        declare1: declarations.declare1,
+                        declare2: declarations.declare2,
+                        declare3: !declarations.declare3,
+                        declare4: declarations.declare4,
                       });
                     }}
                   />
@@ -135,14 +135,14 @@ function Declaration() {
                   <Field
                     type="checkbox"
                     className="mt-20"
-                    checked={state.declarations.declare4}
+                    checked={declarations.declare4}
                     name="agree"
                     onChange={() => {
-                      state.setDeclarations({
-                        declare1: state.declarations.declare1,
-                        declare2: state.declarations.declare2,
-                        declare3: state.declarations.declare3,
-                        declare4: !state.declarations.declare4,
+                      setDeclarations({
+                        declare1: declarations.declare1,
+                        declare2: declarations.declare2,
+                        declare3: declarations.declare3,
+                        declare4: !declarations.declare4,
                       });
                     }}
                   />

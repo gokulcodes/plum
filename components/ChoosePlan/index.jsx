@@ -115,18 +115,6 @@ function ChoosePlan() {
                       {planError}
                     </p>
                   )}
-                  {/* <Field
-                      as="select"
-                      name="plan"
-                    > */}
-                  {/* <option disabled>Select your plan</option>
-                      <option value="One (Individual)">Select your plan</option>
-                      <option value="Pro (Individual)">Select your plan</option>
-                      <option value="Plus (Individual + Individual)">Select your plan</option>
-                      <option value="Max (Floater)">Select your plan</option>
-                      <option value="Grand (Floater + Individual)">Select your plan</option>
-                    */}
-                  {/* </Field> */}
                 </AccordionDetails>
               </Accordion>
 

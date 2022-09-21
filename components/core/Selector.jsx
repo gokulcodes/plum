@@ -47,13 +47,13 @@ const plans = [
 ];
 
 function Selector() {
-  const state = useContext(PlumContext);
+  const { plan, setPlanError, setPlan } = useContext(PlumContext);
 
   return (
     <Menu as="div" className="relative inline-block w-full text-left">
       <div>
         <Menu.Button className="inline-flex w-full  justify-between rounded-md bg-white px-4 py-5 font-sans text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">
-          {state.plan === 0 ? "Select your plan" : state.plan}
+          {plan === 0 ? "Select your plan" : plan}
           <svg
             className="h-5 -mr-1 ml-2 w-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -80,32 +80,31 @@ function Selector() {
         leaveTo="transform opacity-0 scale-95"
       >
         <Menu.Items className="absolute right-0 z-10 mt-2 w-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-          {plans.map((plan) => (
-            <Menu.Item key={plan.id}>
+          {plans.map((planObj) => (
+            <Menu.Item key={planObj.id}>
               <button
                 type="button"
-                key={plan.id}
                 className="group flex w-full cursor-pointer flex-col items-start border-b-2 border-black/10"
                 onClick={() => {
-                  state.setPlanError(null);
-                  state.setPlan(`${plan.member} (${plan.descriptionMember})`);
+                  setPlanError(null);
+                  setPlan(`${planObj.member} (${planObj.descriptionMember})`);
                 }}
               >
                 <p className="text-md px-4 pt-4 font-sans">
-                  <b>{plan.member}</b>
+                  <b>{planObj.member}</b>
                   {" "}
                   (
-                  {plan.descriptionMember}
+                  {planObj.descriptionMember}
                   )
                 </p>
                 <div className="my-2 flex w-full flex-row items-center justify-between p-4 transition-all  group-hover:bg-orange-100">
                   <div className="flex flex-row items-center justify-center">
-                    <Image src={plan.avatar} width={28} height={28} />
-                    <p className="ml-2 text-xl font-bold">{plan.title}</p>
+                    <Image src={planObj.avatar} width={28} height={28} />
+                    <p className="ml-2 text-xl font-bold">{planObj.title}</p>
                   </div>
                   <p className="text-lg font-bold">
                     ₹
-                    {plan.amount}
+                    {planObj.amount}
                   </p>
                 </div>
               </button>

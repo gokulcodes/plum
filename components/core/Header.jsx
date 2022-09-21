@@ -30,7 +30,7 @@ const Pages = [
   },
 ];
 function Header() {
-  const state = useContext(PlumContext);
+  const { activePage } = useContext(PlumContext);
   return (
     <div className="flex flex-col items-center">
       <div className="mx-auto flex w-4/5 flex-row items-center justify-between p-4">
@@ -41,7 +41,7 @@ function Header() {
         {Pages.map((page) => (
           <div
             className={`p-1 ${
-              page.id <= state.activePage ? "bg-orange-600" : "bg-black/10"
+              page.id <= activePage ? "bg-orange-600" : "bg-black/10"
             } col-span-1 m-1`}
           />
         ))}
